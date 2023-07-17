@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import ApiClient from "../services/ApiClient";
 import { CanceledError } from "axios";
 
-interface GameProps {
+export interface GameProps {
   id: number;
   name: string;
+  background_image: string;
 }
 
 interface GamesResponseProps {
