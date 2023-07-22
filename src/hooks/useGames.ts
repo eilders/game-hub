@@ -13,6 +13,7 @@ export interface GameProps {
   background_image: string;
   parent_platforms: { platform: PlatformProps }[];
   metacritic: number;
+  rating_top: number;
 }
 
 const useGames = (gameQuery: GameQueryProps) =>
