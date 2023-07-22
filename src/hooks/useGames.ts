@@ -1,3 +1,4 @@
+import { GameQueryProps } from "../App";
 import useData from "./useData";
 import { GenreProps } from "./useGenres";
 
@@ -14,14 +15,16 @@ export interface GameProps {
   metacritic: number;
 }
 
-const useGames = (
-  selectedGenre: GenreProps | null,
-  selectedPlatform: PlatformProps | null
-) =>
+const useGames = (gameQuery: GameQueryProps) =>
   useData<GameProps>(
     "/games",
-    { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
-    [selectedGenre?.id, selectedPlatform?.id]
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+      },
+    },
+    [gameQuery]
   );
 
 export default useGames;
